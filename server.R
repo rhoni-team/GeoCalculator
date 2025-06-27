@@ -1,5 +1,9 @@
 function(input, output, session) {
-  lon_dec <- reactive(input$lon_dec)
-  output$output_lon_dec <- lon_dec
-  example$server("id_example")
+  
+  decimal_coords <- DecimalCoord$DecimalCoordServer("coord_container-coord")
+  
+  output$output_lon_dec <- renderText({
+    paste("The selected longitude is:", decimal_coords$lon())
+  })
+  
 }

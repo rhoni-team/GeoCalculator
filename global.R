@@ -4,8 +4,10 @@ box::use(
   shiny[...],
   bslib[...],
   sass[sass_file, ],
+  ggplot2[...],
 )
 
 box::use(
-  example = modules/example[ui, server],
+  DecimalCoord = modules/DecimalCoord[DecimalCoordInput, DecimalCoordServer],
+  CoordContainer = modules/CoordInputContainer[CoordContainer],
 )

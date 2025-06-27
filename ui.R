@@ -5,16 +5,20 @@ page_fluid(
   ) |>
     bs_add_rules(sass_file("www/styles.scss")),
   
-  navset_bar(
-    title = "Geocalculator",
+  div(
+    id="banner-title",
+    class="container centered-text",
+    "Geocalculator"
   ),
   
   page_fixed(
     
     title = "Geocalculator",
     
-    card(
-      numericInput("lon_dec", "input the longitude as decimal", min=-180, max=180, value=0),
+    CoordContainer$CoordContainer(
+      "coord_container",
+      title = "Decimal Coordinates",
+      coord_module = DecimalCoord$DecimalCoordInput
     ),
     
     card(
@@ -25,8 +29,8 @@ page_fluid(
       ),
     ),
     
-    textOutput("output_lon_dec"),
-    example$ui("id_example")
+    
+    textOutput("output_lon_dec")
   )
   
 )
